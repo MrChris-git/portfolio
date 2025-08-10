@@ -1,16 +1,17 @@
 import React from "react";
 
 export type labelProps = {
+  id?: string;
   className?: string;
   children?: string;
 };
 
-const label: React.FC<labelProps> = ({ className, children }) => {
+const Label: React.FC<labelProps> = ({ id, className, children }) => {
   return (
-    <label className={`text-black dark:text-white ${children}`}>
+    <label id={id} className={`text-black dark:text-white ${className || ""}`}>
       {children}
     </label>
   );
 };
 
-export default label;
+export default Label;

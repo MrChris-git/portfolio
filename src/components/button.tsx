@@ -1,17 +1,17 @@
 // components/Button.tsx
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 
 type ButtonProps = {
-  label: string;
+  children: string | ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   className?: string; // optional extra class names
 };
 
 export default function Button({
-  label,
+  children,
   onClick,
   disabled = false,
   className = "",
@@ -29,7 +29,7 @@ export default function Button({
         ${className}
       `}
     >
-      {label}
+      {children}
     </button>
   );
 }
