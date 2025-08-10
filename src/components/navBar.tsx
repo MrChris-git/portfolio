@@ -9,7 +9,7 @@ import Span from "./span";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const context = links.map(({ href, label }) => {
     const isActive = pathname === href;

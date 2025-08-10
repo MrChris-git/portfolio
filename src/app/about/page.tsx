@@ -1,8 +1,6 @@
 import Label from "@/components/label";
 
-interface AboutProps {}
-
-const About: React.FunctionComponent<AboutProps> = () => {
+const About = () => {
   return (
     <div>
       <Label>about</Label>

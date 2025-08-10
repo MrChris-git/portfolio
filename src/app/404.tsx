@@ -6,7 +6,7 @@ const Custom404 = () => {
   return (
     <div>
       <H1>404</H1>
-      <Label>This page doesn't exist</Label>
+      <Label>This page doesn&apos;t exist</Label>
     </div>
   );
 };

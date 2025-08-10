@@ -4,18 +4,11 @@ import H1 from "@/components/h1";
 import H3 from "@/components/h3";
 import Label from "@/components/label";
 import { programLang } from "@/data/programLang";
-import {
-  Mail,
-  SquareArrowOutUpRight,
-  SquareArrowRight,
-  SquareArrowRightIcon,
-} from "lucide-react";
+import { Mail, SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
 
-interface HomeProps {}
-
-const Home: React.FunctionComponent<HomeProps> = () => {
+const Home = () => {
   type linkBtnProps = { href: string; context: ReactNode };
 
   const LinkBtn: React.FC<linkBtnProps> = ({ href, context }) => {
@@ -63,7 +56,7 @@ const Home: React.FunctionComponent<HomeProps> = () => {
             <H3>Hi, I’m Chris,</H3>
             <H1>A passionate software developer.</H1>
             <Label>
-              I'm a Hong Kong who loves building application products.
+              I&apos;m a Hong Kong who loves building application products.
             </Label>
           </div>
           <div className="flex flex-wrap my-4">
@@ -82,7 +75,7 @@ const Home: React.FunctionComponent<HomeProps> = () => {
             return <LinkBtn key={args.href} {...args} />;
           })}
         </div>
-        <img id="pictrue" className="object-fill" />
+        <img id="pictrue" className="object-fill" alt="Decorative image" />
       </div>
     </Container>
   );
