@@ -7,8 +7,11 @@ export type ContainerPorps = {
 
 const Container: FC<ContainerPorps> = ({ className, children }) => {
   return (
-    <div id="container" className={`${className || ""}`}>
-      {children}
+    <div
+      id="container"
+      className={`flex grow justify-center ${className || ""}`}
+    >
+      <div className="max-w-6xl w-5/6">{children}</div>
     </div>
   );
 };

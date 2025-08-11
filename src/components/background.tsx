@@ -1,12 +1,18 @@
 "use client";
 import React from "react";
 import Navbar from "./navBar";
+import Footer from "./footer";
+import Container from "./container";
 
 const Background = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className={`h-screen w-screen m-0 p-0 bg-white dark:bg-black`}>
+    <div
+      id="background"
+      className={`min-h-screen flex flex-col m-0 p-0 bg-white dark:bg-[#1a1a1a]`}
+    >
       <Navbar />
-      {children}
+      <Container>{children}</Container>
+      <Footer />
     </div>
   );
 };

@@ -9,16 +9,16 @@ import Span from "./span";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const context = links.map(({ href, label }) => {
+  const navLinks = links.map(({ href, label }) => {
     const isActive = pathname === href;
     return (
       <Link
         id={label}
         className={`text-black dark:text-white ${
-          !isActive && "hover:opacity-70"
-        } ${isActive && "border-b-2 cursor-default"}`}
+          !isActive ? "hover:opacity-70" : "border-b-2 cursor-default"
+        }`}
         href={href}
         key={label}
       >
@@ -28,17 +28,14 @@ const Navbar = () => {
   });
 
   return (
-    <div className="flex justify-center md:h-20 h-14">
-      <div
-        className="absolute z-50 flex flex-1 m-2 p-2 md:w-5xl min-w-76 border-b-2 border-gray-500 
-          items-center justify-between bg-[#FFFFFF] dark:bg-[#121212] rounded-tl-md rounded-tr-md"
-      >
-        <nav
-          className={`hidden md:flex grow m-1 max-w-5xl
-          items-center justify-around`}
-        >
+    <div
+      id="navigation bar"
+      className="flex justify-center md:min-h-20 min-h-14"
+    >
+      <div className="absolute z-50 flex flex-1 m-2 p-2 min-w-[80%] border-b-2 border-gray-500 items-center justify-between bg-[#FFFFFF] dark:bg-[#121212] rounded-tl-md rounded-tr-md">
+        <nav className="hidden md:flex grow m-1 items-center justify-around">
           <Label className="md:ml-8">Mr. Chris</Label>
-          {context}
+          {navLinks}
           <ThemeTogglebtn />
         </nav>
         <Label className="md:hidden">Mr. Chris</Label>
@@ -51,7 +48,7 @@ const Navbar = () => {
           isOpen ? "p-4 opacity-100" : "max-h-0 p-0 opacity-0"
         }`}
       >
-        {context}
+        {navLinks}
         <ThemeTogglebtn />
       </nav>
     </div>
