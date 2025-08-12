@@ -21,11 +21,8 @@ const Footer = () => {
   ];
 
   return (
-    <div
-      id="footer"
-      className={`flex justify-center min-h-32 ${colors.bgDark}`}
-    >
-      <div className="flex justify-center items-center pt-2 !min-w-[80%] ">
+    <div id="footer" className={`min-h-32 ${colors.bgDark}`}>
+      <div className="flex flex-col justify-center items-center pt-2 !min-w-[80%] ">
         <div className="flex">
           {extendLinks.map(({ label, uri, icon }) => {
             return (
@@ -40,6 +37,14 @@ const Footer = () => {
               </Link>
             );
           })}
+        </div>
+        <div id="reference" className="flex flex-col">
+          <Label className="text-center opacity-70 !text-white">
+            Reference by
+          </Label>
+          <Label className="opacity-70 !text-white">
+            https://www.linkedin.com/
+          </Label>
         </div>
       </div>
     </div>

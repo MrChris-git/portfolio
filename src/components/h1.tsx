@@ -1,13 +1,12 @@
 import React from "react";
-import Label from "./label";
+import Label, { labelProps } from "./label";
 
-export type H1Props = {
-  className?: string;
-  children?: string;
-};
-
-const H1: React.FC<H1Props> = ({ className, children }) => {
-  return <Label className={`text-4xl  ${className || ""}`}>{children}</Label>;
+const H1: React.FC<labelProps> = ({ id, className, children }) => {
+  return (
+    <Label id={id} className={`text-4xl  ${className || ""}`}>
+      {children}
+    </Label>
+  );
 };
 
 export default H1;
