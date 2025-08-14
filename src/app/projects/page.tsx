@@ -24,7 +24,7 @@ const Projects = () => {
               <button
                 className="flex-1 h-full"
                 onClick={() => setProject(index)}
-                key={title}
+                key={`title-${index}`}
               >
                 <Card className="m-1 p-2 flex-col min-h-37 transform transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer">
                   <Label className="cursor-pointer">{title}</Label>
@@ -64,7 +64,7 @@ const Projects = () => {
                   if (!tools || tools.length === 0) return null;
                   return tools.map((val) => {
                     return (
-                      <div>
+                      <div key={category}>
                         <Label>{formatLabelUpperCase(category)}</Label>
                         <Card className="m-1 px-3 py-1 rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
                           <Label>{val}</Label>
