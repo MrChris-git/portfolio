@@ -45,8 +45,10 @@ const Navbar = () => {
         </button>
       </div>
       <nav
-        className={`md:hidden absolute z-10 pt-16 left-0 min-h-screen w-full bg-white dark:bg-[#121212] flex flex-col gap-4 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "p-4 opacity-100" : "max-h-0 p-0 opacity-0"
+        className={`md:hidden fixed z-10 top-0 left-0 h-screen w-full bg-white dark:bg-[#121212] flex flex-col gap-4 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "p-4 pt-20 opacity-100 pointer-events-auto"
+            : "max-h-0 p-0 opacity-0 pointer-events-none"
         }`}
       >
         {navLinks}

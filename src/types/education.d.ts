@@ -8,4 +8,5 @@ export type educationProps = {
   iconUri?: string;
   activitiesAndSocieties?: string;
   description?: string;
+  certUri?: string;
 };

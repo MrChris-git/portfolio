@@ -1,9 +1,11 @@
+import Button from "@/components/button";
 import Card from "@/components/card";
 import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import H3 from "@/components/h3";
 import Label from "@/components/label";
 import { educations } from "@/data/educations";
+import Link from "next/link";
 
 const formatMonthYear = (date: Date) =>
   date.toLocaleString("en-US", { month: "short", year: "numeric" });
@@ -26,28 +28,26 @@ When I’m not coding, you’ll find me following tech trends or experimenting w
     <div className="flex flex-col justify-center">
       <H1 className="text-center py-6 font-semibold">Hello World!</H1>
       <Label className="px-4">{aboutMe}</Label>
-      <Card className="m-2 p-6 sm:p-8 flex-col my-6">
-        <div className="flex w-full justify-center">
-          <H2 className="mb-2 font-semibold">Education</H2>
-        </div>
+      <Card className=" sm:p-8 flex-col my-6">
+        <H2 className="text-center mb-2 font-semibold">Education</H2>
         {educations
           .slice()
           .reverse()
-          .map(
-            ({ iconUri, school, degree, fieldOfStudy, startDate, endDate }) => {
-              return (
-                <Card
-                  className="m-2 p-6 sm:p-8 items-start md:flex-row flex-col"
-                  key={`${school}-${startDate.toString()}`}
-                >
-                  {iconUri ? (
-                    <img
-                      className="mr-4 object-contain"
-                      src={iconUri}
-                      width={48}
-                      alt={`${school} logo`}
-                    />
-                  ) : null}
+          .map(({ iconUri, school, degree, certUri, startDate, endDate }) => {
+            return (
+              <Card
+                className="m-2 sm:p-8 items-start md:flex-row flex-col"
+                key={`${school}-${startDate.toString()}`}
+              >
+                {iconUri ? (
+                  <img
+                    className="mr-4 object-contain"
+                    src={iconUri}
+                    width={48}
+                    alt={`${school} logo`}
+                  />
+                ) : null}
+                <div className="flex w-full justify-between">
                   <div>
                     <H3 id="school">{school}</H3>
                     <br />
@@ -59,10 +59,17 @@ When I’m not coding, you’ll find me following tech trends or experimenting w
                       {formatDateRange(startDate, endDate)}
                     </Label>
                   </div>
-                </Card>
-              );
-            }
-          )}
+                  {certUri && (
+                    <div>
+                      <Link href={`/asset/pdf/${certUri}`} target="_blank">
+                        <Button>Certification</Button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </Card>
+            );
+          })}
       </Card>
     </div>
   );

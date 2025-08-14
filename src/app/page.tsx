@@ -91,11 +91,11 @@ const Home = () => {
           </Label>
         </div>
       </div>
-      <img
+      {/* <img
         id="pictrue"
         className="flex-1/3 my-4 object-fill dark:text-white"
         alt="Decorative image"
-      />
+      /> */}
     </div>
   );
 };

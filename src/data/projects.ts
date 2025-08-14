@@ -1,0 +1,60 @@
+import { projectProps } from "@/types/project";
+
+export const projects: projectProps[] = [
+  {
+    title: "Fitness Community App",
+    description:
+      "Developed a social fitness platform with real-time user interaction and AI chat features.",
+    programLang: {
+      frontend: ["React Native"],
+      backend: ["Pyhton(Flask)"],
+      database: ["MySQL"],
+      ai: ["Llama 3"],
+    },
+    position: ["Full stack"],
+    demoUri: "BSC.mp4",
+    score: 74,
+  },
+  {
+    title: "Electric Vehicle Charger Management System",
+    description:
+      "Created a web-based system for monitoring and managing EV charger availability and usage.",
+    programLang: {
+      frontend: ["AngularJS"],
+      backend: ["PHP"],
+      database: ["MySQL"],
+    },
+    position: ["Full stack"],
+    demoUri: "",
+    score: 68,
+  },
+  {
+    title: "AI Trip Planner",
+    description:
+      "Built a travel assistant web app that uses AI to recommend personalized itineraries.",
+    programLang: {
+      frontend: ["Next.js", "React Native"],
+      backend: ["PHP"],
+      database: ["MySQL"],
+      ai: ["Sklearn"],
+      server: ["Digital Ocean"],
+    },
+    position: ["Front end", "Back end"],
+    demoUri: "",
+    score: "A-",
+  },
+  {
+    title: "Equipment Management System",
+    description:
+      "Designed a campus equipment tracking system with login, check-in/out features, and reporting.",
+    programLang: {
+      frontend: ["Java", "GlassFish Server"],
+      backend: ["Java"],
+      database: ["MySQL"],
+      ai: ["Sklearn"],
+      server: ["GlassFish Server"],
+    },
+    position: ["Back end"],
+    demoUri: "",
+  },
+];

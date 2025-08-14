@@ -4,7 +4,7 @@
 import React, { ReactNode } from "react";
 
 type ButtonProps = {
-  children: string | ReactNode;
+  children?: string | ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   className?: string; // optional extra class names

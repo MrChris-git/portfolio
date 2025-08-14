@@ -20,5 +20,7 @@ export const educations: educationProps[] = [
     grade: "Second Class (Upper Division)",
     startDate: new Date("2024-09"),
     endDate: new Date("2025-07"),
+    certUri:
+      "Chan Ho Lam - Chan Ho Lam  - INFORMATION TECHNOLOGY - Certificate - 24065706.pdf",
   },
 ];

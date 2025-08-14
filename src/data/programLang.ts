@@ -7,4 +7,6 @@ export const programLang: string[] = [
   "PHP",
   "SQL",
   "C#",
+  "VScode",
+  "Cursor",
 ];
