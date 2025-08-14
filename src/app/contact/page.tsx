@@ -191,9 +191,9 @@ const Contact = () => {
             </Label>
           </div>
           <Label className="mt-2 opacity-70">
-            I'm currently open to full-time positions, freelance work, and
+            {`I'm currently open to full-time positions, freelance work, and
             interesting projects. Feel free to reach out if you'd like to
-            discuss potential collaborations!
+            discuss potential collaborations!`}
           </Label>
         </Card>
       </Card>
