@@ -1,7 +1,6 @@
 import React from "react";
 import Label from "./label";
 import { colors } from "@/data/color";
-import Container from "./container";
 import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { extendLinksProps } from "@/types/extendLinks";
@@ -11,12 +10,12 @@ const Footer = () => {
     {
       label: "github",
       uri: "https://github.com/MrChris-git",
-      icon: <Github color="white" size={"2rem"} />,
+      icon: <Github key="github-icon" color="white" size={"2rem"} />,
     },
     {
       label: "linkedIn",
       uri: "https://www.linkedin.com/in/chan-ho-lam-395805277/",
-      icon: <Linkedin color="white" size={"2rem"} />,
+      icon: <Linkedin key="linkedin-icon" color="white" size={"2rem"} />,
     },
   ];
 
