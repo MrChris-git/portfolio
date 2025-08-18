@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "transform:projects": "node src/utils/jsonTransform.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

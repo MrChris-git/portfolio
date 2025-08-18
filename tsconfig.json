@@ -24,7 +24,8 @@
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@data/*": ["./src/data/*"],
-      "@types/*": ["./src/types/*"]
+      "@types/*": ["./src/types/*"],
+      "@json/*": ["./public/asset/json/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
