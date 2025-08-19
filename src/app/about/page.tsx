@@ -5,7 +5,7 @@ import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import H3 from "@/components/h3";
 import Label from "@/components/label";
-import { fetchJson, fetchText } from "@/utils/fetchData";
+import { fetchData, fetchJson, fetchText } from "@/utils/fetchData";
 import { educationProps } from "@/types/education";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -44,8 +44,7 @@ const About = () => {
 
     const loadAboutMe = async () => {
       try {
-        const data = await fetchText("/asset/json/introduce.txt");
-        console.log(data);
+        const data = await fetchData("introduction");
         setAboutMe(data);
       } catch (_error) {
         setAboutMe("Unknown error");
