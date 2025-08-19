@@ -17,6 +17,7 @@
     "transform:projects": "node src/utils/jsonTransform.js"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.12.0",
     "@tailwindcss/vite": "^4.1.11",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",

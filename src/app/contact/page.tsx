@@ -1,9 +1,10 @@
+"use client";
 import Card from "@/components/card";
 import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import Label from "@/components/label";
 import { Download } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export type contactInfoProps = {
   name: string;

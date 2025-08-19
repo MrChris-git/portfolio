@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  return <div className="p-4">{children}</div>;
+  return (
+    <div className="p-4">
+      <Suspense>{children}</Suspense>
+    </div>
+  );
 };
 
 export default Layout;
-
-
