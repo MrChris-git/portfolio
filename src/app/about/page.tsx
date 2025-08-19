@@ -5,7 +5,7 @@ import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import H3 from "@/components/h3";
 import Label from "@/components/label";
-import { fetchData, fetchJson, fetchText } from "@/utils/fetchData";
+import { fetchJson } from "@/utils/fetchData";
 import { educationProps } from "@/types/education";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,7 +17,8 @@ const formatDateRange = (start: Date, end: Date) =>
   `${formatMonthYear(start)} – ${formatMonthYear(end)}`;
 
 const About = () => {
-  const [aboutMe, setAboutMe] = useState<string | undefined>(undefined);
+  const aboutMe =
+    "Hi, I’m Chan Ho Lam, Chris — a recent graduate with a BSc (Hons) in Information Technology from the University of the West of England and a Higher Diploma in Software Engineering from the Hong Kong Institute of Vocational Education. I’m passionate about creating smart, user-friendly digital solutions. My experience includes building mobile apps, web applications, and management systems using technologies like JavaScript, TypeScript, React, React Native, Angular, Java, Python, PHP, and SQL. Some of my projects include a Fitness Community App, an EV Charger Management System, an AI Trip Planner, and an Equipment Management System. I love learning new technologies and solving real-world problems through code. My goal is to grow as a software developer while contributing to innovative projects that make an impact. When I’m not coding, you’ll find me following tech trends or experimenting with new tools.";
   const [educations, setEducations] = useState<educationProps[] | null>(null);
 
   useEffect(() => {
@@ -42,17 +43,7 @@ const About = () => {
       }
     };
 
-    const loadAboutMe = async () => {
-      try {
-        const data = await fetchData("introduction");
-        setAboutMe(data);
-      } catch (_error) {
-        setAboutMe("Unknown error");
-      }
-    };
-
     loadEducations();
-    loadAboutMe();
   }, []);
 
   return (
