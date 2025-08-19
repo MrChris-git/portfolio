@@ -23,25 +23,3 @@ export async function fetchText(
   }
   return response.text();
 }
-
-export async function fetchData(
-  key: string | string[],
-  init?: RequestInit
-): Promise<any> {
-  const response = await fetch("/asset/json/data.json", init);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch data: ${response.status} ${response.statusText}`
-    );
-  }
-  const json = await response.json();
-  if (typeof key === "string") {
-    return json[key];
-  } else if (Array.isArray(key)) {
-    const result: Record<string, any> = {};
-    key.forEach((k) => {
-      result[k] = json[k];
-    });
-    return result;
-  }
-}

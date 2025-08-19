@@ -1,10 +1,7 @@
-"use client";
-
 import Card from "@/components/card";
 import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import Label from "@/components/label";
-import { fetchData } from "@/utils/fetchData";
 import { Download } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -18,7 +15,15 @@ export type contactInfoProps = {
 };
 
 const Contact = () => {
-  const [contactInfo, setContactInfo] = useState<contactInfoProps | null>(null);
+  const contactInfo = {
+    resume: "Chan Ho Lam Resume",
+    name: "Chan Ho Lam",
+    title: "Software Developer",
+    email: "chanholamchris@gmail.com",
+    phone: "+852 54436723",
+    linkedin: "https://www.linkedin.com/in/chan-ho-lam-395805277/",
+    github: "https://github.com/MrChris-git",
+  };
 
   const handleEmailClick = () => {
     if (!contactInfo) return;
@@ -29,22 +34,6 @@ const Contact = () => {
     if (!contactInfo) return;
     window.location.href = `tel:${contactInfo.phone}`;
   };
-
-  useEffect(() => {
-    const fetchContact = async () => {
-      const data = await fetchData([
-        "name",
-        "title",
-        "email",
-        "phone",
-        "linkedin",
-        "github",
-      ]);
-      setContactInfo(data);
-    };
-
-    fetchContact();
-  }, []);
 
   if (!contactInfo) {
     return <Label>Now Loading</Label>;
