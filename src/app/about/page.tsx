@@ -34,8 +34,8 @@ const About = () => {
         );
         const parsed: educationProps[] = data.map((item) => ({
           ...item,
-          startDate: new Date(`${item.startDate}-01`),
-          endDate: new Date(`${item.endDate}-01`),
+          startDate: new Date(`${item.startDate}`),
+          endDate: new Date(`${item.endDate}`),
         }));
         setEducations(parsed);
       } catch (_error) {
