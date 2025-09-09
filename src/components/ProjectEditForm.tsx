@@ -55,6 +55,7 @@ const ProjectEditForm: FC<ProjectEditFormProps> = ({ index, editingData }) => {
         setProject({ ...project, demoUri: filename });
         alert("Video uploaded successfully!");
       } else {
+        console.log(res);
         alert("Upload failed");
       }
     } catch (error) {
