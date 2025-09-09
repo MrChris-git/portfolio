@@ -37,7 +37,9 @@ const About = () => {
           startDate: new Date(`${item.startDate}`),
           endDate: new Date(`${item.endDate}`),
         }));
-        setEducations(parsed);
+        setEducations(
+          parsed.sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
+        );
       } catch (_error) {
         setEducations([]);
       }

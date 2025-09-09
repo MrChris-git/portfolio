@@ -77,6 +77,7 @@ const Projects = () => {
             <Label className="mt-2">{`Position: ${selectedProject.position.join(
               ", "
             )}`}</Label>
+            <Label>Language:</Label>
             <div className="flex flex-wrap mt-2">
               {Object.entries(selectedProject.programLang).map(
                 ([category, tools]) => {
@@ -84,7 +85,6 @@ const Projects = () => {
                   return tools.map((val) => {
                     return (
                       <div key={`${category}-${val}`}>
-                        <Label>{formatLabelUpperCase(category)}</Label>
                         <Card className="m-1 px-3 py-1 rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105">
                           <Label>{val}</Label>
                         </Card>

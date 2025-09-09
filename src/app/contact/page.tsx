@@ -4,7 +4,8 @@ import H1 from "@/components/h1";
 import H2 from "@/components/h2";
 import Label from "@/components/label";
 import { Download } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchJson } from "@/utils/fetchData";
 
 export type contactInfoProps = {
   name: string;
@@ -15,7 +16,21 @@ export type contactInfoProps = {
   github: string;
 };
 
+type PdfData = { resumeUri: string };
+
 const Contact = () => {
+  const [resumeUri, setResumeUri] = useState<string>("");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await fetchJson<PdfData>("/asset/json/pdf.json");
+        setResumeUri(data?.resumeUri || "");
+      } catch {
+        setResumeUri("");
+      }
+    })();
+  }, []);
   const contactInfo = {
     resume: "Chan Ho Lam Resume",
     name: "Chan Ho Lam",
@@ -184,8 +199,11 @@ const Contact = () => {
               </div>
             </div>
             <a
-              href={`asset/pdf/Chan Ho Lam Resume.pdf`}
-              download="Chan_Ho_Lam_Resume.pdf"
+              href={(resumeUri || `/asset/pdf/Chan Ho Lam Resume.pdf`).replace(
+                /^([^/])/,
+                "/$1"
+              )}
+              download
               className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">

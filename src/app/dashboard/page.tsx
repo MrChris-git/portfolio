@@ -24,8 +24,8 @@ type Education = {
   degree: string;
   fieldOfStudy: string;
   grade: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
   iconUri?: string;
   certUri?: string;
   activitiesAndSocieties?: string;
@@ -54,8 +54,7 @@ const Dashboard = () => {
       const resE = await fetch("/api/educations");
       if (resE.ok) setEducations(await resE.json());
     })();
-    console.log(show);
-  }, []);
+  }, [show]);
 
   const addProject = async (project: Project) => {
     const res = await fetch("/api/projects", {
@@ -122,6 +121,15 @@ const Dashboard = () => {
     if (res.ok) {
       const data = await res.json();
       alert(`Uploaded to ${data.uri}`);
+      // If a PDF was uploaded, persist its public path into pdf.json
+      const uri = String(data.uri || "");
+      if (uri && folder === "pdf") {
+        await fetch("/api/pdf", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ resumeUri: uri }),
+        });
+      }
       setFile(null);
     }
   };
@@ -179,8 +187,7 @@ const Dashboard = () => {
                         editingData: p,
                         type: "project",
                       });
-                      console.log(p);
-                      router.push("?show=ture");
+                      router.push("?show=true");
                     }}
                   >
                     <Label>Edit</Label>
@@ -229,8 +236,13 @@ const Dashboard = () => {
                   <button
                     className="border rounded px-2 dark:border-white"
                     onClick={() => {
-                      const school = prompt("School", e.school) || e.school;
-                      updateEducation(i, { ...e, school });
+                      setEditingData({
+                        index: i,
+                        editingData: e,
+                        type: "education",
+                      });
+                      console.log(e);
+                      router.push("?show=true");
                     }}
                   >
                     <Label>Edit</Label>
@@ -248,16 +260,18 @@ const Dashboard = () => {
           <button
             className="border rounded px-3 py-1 dark:border-white"
             onClick={() => {
-              const school = prompt("School");
-              if (!school) return;
-              addEducation({
-                school,
-                degree: "",
-                fieldOfStudy: "",
-                grade: "",
-                startDate: new Date().toISOString(),
-                endDate: new Date().toISOString(),
+              setEditingData({
+                editingData: {
+                  school: "",
+                  degree: "",
+                  fieldOfStudy: "",
+                  grade: "",
+                  startDate: new Date(),
+                  endDate: new Date(),
+                },
+                type: "school",
               });
+              router.push("?show=true");
             }}
           >
             <Label>Add Education</Label>
@@ -266,7 +280,7 @@ const Dashboard = () => {
 
         <section className="md:col-span-2">
           <h3 className="font-semibold mb-2">
-            <Label>Upload Files</Label>
+            <Label>Upload Resume Files</Label>
           </h3>
           <div className="flex gap-2 items-center">
             <select
@@ -293,9 +307,6 @@ const Dashboard = () => {
           </div>
         </section>
       </div>
-      <Link className="dark:text-white" href="?show=true">
-        SUMMON THE MODAL
-      </Link>
       {show && <Modal {...editingData} />}
     </div>
   );
