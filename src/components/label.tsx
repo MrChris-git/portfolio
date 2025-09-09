@@ -1,12 +1,12 @@
 import React from "react";
 
-export type LabelProps = {
+export type labelProps = {
   id?: string;
   className?: string;
   children?: React.ReactNode; // <-- fix here
 };
 
-const Label: React.FC<LabelProps> = ({ id, className, children }) => {
+const Label: React.FC<labelProps> = ({ id, className, children }) => {
   return (
     <label id={id} className={`text-black dark:text-white ${className || ""}`}>
       {children}
